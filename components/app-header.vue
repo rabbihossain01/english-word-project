@@ -2,15 +2,13 @@
   <nav class="navbar" :style="{ boxShadow: shadow }">
     <div class="container">
       <div class="nav-logo">
-        <p>Logo will be here</p>
+        <h1>Logo will be here</h1>
       </div>
       <ul class="nav_list">
-        <li><a href="#landing">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="#company-section">Company</a></li>
-        <li><a href="#pricing-cards">Pricing</a></li>
-        <li><a href="#contact-section">Contact</a></li>
-        <button class="btn">Login</button>
+        <li><nuxt-link class="nav-link" to="/">Home</nuxt-link></li>
+        <li><nuxt-link class="nav-link" to="/about">About</nuxt-link></li>
+        <li><nuxt-link class="nav-link" to="/contact">Contact</nuxt-link></li>
+        <li><nuxt-link class="nav-link" to="/signin">Login</nuxt-link></li>
       </ul>
       <div class="dopdownmenu">
         <img
@@ -22,11 +20,9 @@
       </div>
     </div>
     <div v-if="showMenu" class="mobile-menu">
-      <a href="#landing">Home</a>
-      <a href="/about">About</a>
-      <a href="#company-section">Company</a>
-      <a href="#pricing-cards">Pricing</a>
-      <a href="#contact-section">Contact</a>
+      <nuxt-link class="nav-link" to="/">Home</nuxt-link>
+      <nuxt-link class="nav-link" to="/about">About</nuxt-link>
+      <nuxt-link class="nav-link" to="/contact">Contact</nuxt-link>
     </div>
   </nav>
 </template>
@@ -54,34 +50,30 @@ export default {
 
 <style lang="scss" scoped>
 @import '~/styles/style.scss';
-
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: $nav-background-color;
+  background-color: #f9f5f5;
   z-index: 9;
-
   .container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    @extend .main-container;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px 10px 20px 10px;
-
-    .nav-logo {
-      svg {
-        cursor: pointer;
-      }
-    }
-
     .nav_list {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @include responsive(phone) {
+        display: none;
+      }
       li {
         list-style: none;
-        a {
+        .nav-link {
           text-decoration: none;
           color: $link-text-color;
           font-size: $link-font-size;
@@ -93,22 +85,24 @@ export default {
             color: #16171a;
           }
         }
-      }
-
-      .btn {
-        @extend .btn-primary;
-        padding: 10px 20px;
-        font-size: 14px;
-        font-weight: 300;
+        .nuxt-link-exact-active {
+          color: #16171a;
+        }
       }
     }
   }
+
+  // Mobile Menu
   .dopdownmenu {
     display: none;
+    @include responsive(phone) {
+      display: block;
+      justify-self: end;
+      align-self: center;
+    }
   }
   .mobile-menu {
-    @extend .main-container;
-    a {
+    .nav-link {
       display: block;
       color: $primary-color;
       padding: 10px 12px;
@@ -118,21 +112,6 @@ export default {
       &:hover {
         background-color: #ddd;
         color: black;
-      }
-    }
-  }
-}
-
-@include responsive(phone) {
-  .navbar {
-    .container {
-      .nav_list {
-        display: none;
-      }
-      .dopdownmenu {
-        display: block !important;
-        justify-self: end;
-        align-self: center;
       }
     }
   }

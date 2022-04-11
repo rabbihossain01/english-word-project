@@ -1,8 +1,8 @@
 <template>
-  <footer id="footer-section">
+  <footer class="footer-section">
     <div class="container">
       <div class="footer-logo">
-        <p>Logo will here</p>
+        <h2>Logo will here</h2>
         <p>
           <svg
             width="16"
@@ -60,28 +60,15 @@
         </div>
       </div>
       <div class="footer-info">
-        <h2>Product</h2>
-        <li><a href="#">Careere</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Insights</a></li>
-        <li><a href="#">PCI Compliance</a></li>
-        <li><a href="#">Integratlons</a></li>
-        <li><a href="#">Pricing</a></li>
-      </div>
-      <div class="footer-info">
         <h2>For Developers</h2>
         <li><a href="#">Docs</a></li>
         <li><a href="#">Knowledge Base</a></li>
         <li><a href="#">System Status</a></li>
-        <li><a href="#">Turorials</a></li>
-        <li><a href="#">Security</a></li>
       </div>
       <div class="footer-info">
         <h2>Resource</h2>
         <li><a href="#">About</a></li>
         <li><a href="#">Leadership</a></li>
-        <li><a href="#">Press/News</a></li>
-        <li><a href="#">Careers/Team</a></li>
         <li><a href="#">Contact Us</a></li>
       </div>
       <div class="footer-info">
@@ -176,7 +163,7 @@
         </div>
       </div>
       <div class="right-side">
-        <p>&copy; 2021 Connekt.Studio | All Rights Reserved</p>
+        <p>&copy; 2022 AkramSheikh | All Rights Reserved</p>
       </div>
     </div>
   </footer>
@@ -189,8 +176,9 @@ export default {}
 <style lang="scss" scoped>
 @import '~/styles/style.scss';
 
-#footer-section {
-  @extend .main-container;
+.footer-section {
+  max-width: 1600px;
+  margin: 0 auto;
   .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, auto));
@@ -198,7 +186,7 @@ export default {}
     border-bottom: 1px solid #cccccc;
     padding-bottom: 4rem;
     .footer-logo {
-      .logo {
+      h2 {
         cursor: pointer;
         margin-bottom: 1.5rem;
       }
@@ -237,16 +225,15 @@ export default {}
           }
         }
       }
-
       .icons-items {
         display: grid;
         grid-template-columns: repeat(4, auto);
         grid-gap: 10px;
-        justify-items: center;
         align-items: center;
-
         .icon-bg {
-          @extend .flex;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           height: 50px;
           width: 50px;
           border-radius: 50%;
@@ -279,6 +266,7 @@ export default {}
     }
   }
 
+  // Footer Bottom
   .footer-buttom {
     display: flex;
     padding: 3rem 0 3rem 0;

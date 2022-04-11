@@ -1,13 +1,26 @@
 <template>
-  <div>
-    <h2>Hello World! This is home page</h2>
+  <div class="home-page">
+    <h1>Hello World! This is home page....</h1>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {}
+  },
+}
 </script>
 
 <style lang="scss" scoped>
+@import '~/styles/style.scss';
+.home-page {
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+}
 </style>
   

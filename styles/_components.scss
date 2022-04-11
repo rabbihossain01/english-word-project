@@ -63,7 +63,7 @@
   }
 }
 
-.btn-button{
+.btn-button {
   padding: 10px 55px;
   background: #fbfbfb;
   font-size: 1rem;
@@ -74,7 +74,6 @@
     background: #e0d7d7;
   }
 }
-
 
 .btn-sm {
   padding: 0.5rem 1rem;
@@ -125,21 +124,4 @@ textarea {
   &::-webkit-input-placeholder {
     color: rgba(0, 0, 0, 0.4);
   }
-}
-.main-container {
-  max-width: 1200px;
-  margin: auto;
-  // padding: 0 10px 0 10px;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-  align-items: center;
-}
-
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

@@ -44,22 +44,9 @@ export default {
 <style lang="scss" scoped>
 @import '~/styles/style.scss';
 .page-container {
-  min-height: calc(100vh - 84px);
-  margin: 0;
-  margin-top: 84px;
-  padding: 0;
-}
-.outline-none {
-  outline: none;
-}
-.logo {
-  height: 2rem;
-}
-.language {
-  font-weight: bold;
-  cursor: pointer;
-}
-.active {
-  color: #007934;
+  max-width: 1600px;
+  margin: 0 auto;
+  min-height: calc(100vh - 70px);
+  margin-top: 70px;
 }
 </style>
