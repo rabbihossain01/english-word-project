@@ -2,7 +2,9 @@
   <nav class="navbar" :style="{ boxShadow: shadow }">
     <div class="container">
       <div class="nav-logo">
-        <h1>Logo will be here</h1>
+        <h1>
+          <nuxt-link to="/">Logo will be here</nuxt-link>
+        </h1>
       </div>
       <ul class="nav_list">
         <li><nuxt-link class="nav-link" to="/">Home</nuxt-link></li>
@@ -75,8 +77,8 @@ export default {
         list-style: none;
         .nav-link {
           text-decoration: none;
-          color: $link-text-color;
-          font-size: $link-font-size;
+          color: #83868b;
+          font-size: 20px;
           font-weight: 500;
           padding: 10px;
           transition: 0.3s;
@@ -104,11 +106,11 @@ export default {
   .mobile-menu {
     .nav-link {
       display: block;
-      color: $primary-color;
+      color: $color-primary;
       padding: 10px 12px;
       text-decoration: none;
-      font-size: $link-font-size;
-      background-color: $bg-primary;
+      font-size: 20px;
+      background-color: #7188f9;
       &:hover {
         background-color: #ddd;
         color: black;
