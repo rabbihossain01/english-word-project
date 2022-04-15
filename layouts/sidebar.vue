@@ -251,8 +251,8 @@ export default {
         display: flex;
         align-items: center;
         margin-bottom: 1rem;
-        font-family: $font-tertiary;
-        color: $link-text-color;
+        font-family: $font-primary;
+        color: #83868b;
         padding: 12px 17px;
         border-radius: 10px;
         cursor: pointer;
@@ -269,8 +269,8 @@ export default {
       align-items: center;
       p {
         font-size: 1.2rem;
-        font-family: $font-tertiary;
-        color: $link-text-color;
+        font-family: $font-primary;
+        color: #83868b;
         cursor: pointer;
       }
     }
