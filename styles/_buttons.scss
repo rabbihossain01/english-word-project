@@ -1,0 +1,56 @@
+@import "_variables.scss";
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  transition: 0.3s;
+  font-family: $font-primary;
+  text-transform: capitalize;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+
+  &:hover {
+    background: rgb(4, 74, 97);
+  }
+
+  &:disabled {
+    background: #bae4f2;
+  }
+}
+
+.primary-btn {
+  display: inline-flex;
+  @extend .btn;
+  width: unset;
+  color: #ffffff;
+  background: rgba(14, 107, 137, 1);
+
+  svg {
+    margin-right: 0.3rem;
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.primary-btn-full-width {
+  width: 100%;
+  @extend .primary-btn;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  @extend .btn;
+  color: rgba(14, 107, 137, 1);
+  border: 1px solid rgba(14, 107, 137, 1);
+  background: transparent;
+
+  &:hover {
+    background: rgba(14, 107, 137, 1);
+    color: #ffffff;
+  }
+}

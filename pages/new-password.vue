@@ -1,28 +1,35 @@
 <template>
   <div class="new-password-page">
-    <h1 class="heading-text">Input new password</h1>
+    <h1 class="page-title">Input new password</h1>
     <div v-if="error" class="error-message">{{ error }}</div>
-    <form class="form-section" @submit.prevent="newPassword()">
-      <div class="input-field">
+    <form @submit.prevent="newPassword()">
+      <div class="input-box">
         <label for="password">Password</label>
-        <input v-model="password" type="password" placeholder="password" />
-      </div>
-      <div class="input-field">
         <input
+          id="password"
+          v-model="password"
+          type="password"
+          placeholder="password"
+        />
+      </div>
+      <div class="input-box">
+        <label for="password">Confirm Password</label>
+        <input
+          id="password"
           v-model="password1"
           type="password"
           placeholder="Retype password"
         />
       </div>
-      <button class="btn btn-primary" type="submit">Send</button>
-      <p>We will send you a reset link on your mail.</p>
+      <button type="submit" class="primary-btn-full-width">send</button>
     </form>
   </div>
 </template>
 
 <script>
-import firebase from 'firebase/app'
 export default {
+  layout: 'footer-less',
+
   data() {
     return {
       password: '',
@@ -30,50 +37,22 @@ export default {
       error: '',
     }
   },
-  methods: {
-    newPassword() {
-      if (this.checkPassword()) {
-        const auth = firebase.auth()
-        const code = this.$route.query.oobCode
-        auth
-          .confirmPasswordReset(code, this.password)
-          .then(() => {
-            this.$router.replace({ name: 'signin' })
-          })
-          .catch((error) => {
-            this.error = error.message
-          })
-      }
-    },
-    checkPassword() {
-      if (this.password === this.password1) {
-        return true
-      } else {
-        this.error = 'Please input same password'
-        this.password = ''
-        this.password1 = ''
-        return false
-      }
-    },
-  },
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/styles/style.scss';
+
 .new-password-page {
-  display: flex;
+  @extend .flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: $font-primary;
-  @include responsive(phone) {
-    height: 100%;
-    padding: 0 1rem;
-  }
-  .heading-text {
-    margin-bottom: 2rem;
-    font-size: 2rem;
+  background: #f1f1f9;
+  min-height: calc(100vh - 4rem);
+  .page-title {
+    font-size: 2.1rem;
+    text-transform: capitalize;
+    color: #004b63;
+    margin-bottom: 1.6rem;
     @include responsive(phone) {
       font-size: 1.5rem;
     }
@@ -81,31 +60,24 @@ export default {
   .error-message {
     margin-bottom: 1rem;
     color: red;
-    max-width: 500px;
-    line-height: 1.6;
+    text-align: center;
+    font-size: 14px;
   }
-  .form-section {
+  form {
+    width: 407px;
     display: flex;
     flex-direction: column;
-    padding: 3rem 4rem;
-    border-radius: 0.5rem;
-    background: white;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 2.3rem 2rem;
+    margin-bottom: 2rem;
     @include responsive(phone) {
-      padding: 1rem 2rem;
+      padding: 2rem 1.5rem;
     }
-    .input-field {
-      display: flex;
-      flex-direction: column;
+    @extend .primary-shadow;
+    .input-box {
       margin-bottom: 1rem;
-      label {
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-      }
     }
-    p {
-      font-size: 0.9rem;
-      margin-top: 1rem;
+    .pd-8 {
+      padding: 0.7rem 0.75rem;
     }
   }
 }
